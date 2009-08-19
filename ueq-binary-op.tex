@@ -83,7 +83,7 @@
 \visiblecomments
 
 \newlength{\blanklineskip}
-\setlength{\blanklineskip}{0.66084ex}
+\setlength{\blanklineskip}{1mm}
 
 \newcommand{\hsindent}[1]{\quad}% default is fixed indentation
 \let\hspre\empty
@@ -396,7 +396,7 @@ The first element returned by \ensuremath{\Varid{operators}} is the binary opera
 \indent\ensuremath{[\mskip1.5mu ((\Conid{True},\Conid{True}),\Conid{True}),((\Conid{True},\Conid{False}),\Conid{True}),((\Conid{False},\Conid{True}),\Conid{True}),((\Conid{False},\Conid{False}),\Conid{True})\mskip1.5mu]}
 \medskip
 
-\section{Unique Existencial Operator}
+\section{Unique Existential Operator}
 Now, recall that our goal is to check the value of the two following expressions, for all
 booleans $a$, $b$, and $c$, and for all boolean binary operators $\oplus$:
 
@@ -536,42 +536,13 @@ by \ensuremath{\Varid{tmp1}} and \ensuremath{\Varid{tmp2}} with the list \ensure
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{28}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{39}{@{}>{\hspre}c<{\hspost}@{}}%
-\column{39E}{@{}l@{}}%
-\column{42}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{10}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[3]{}\Varid{flist}{}\<[25]%
-\>[25]{}\mathbin{::}[\mskip1.5mu \Conid{Bool}\mskip1.5mu]\to [\mskip1.5mu \Conid{BinOp}\mskip1.5mu]\to [\mskip1.5mu \Conid{BinOp}\mskip1.5mu]{}\<[E]%
+\>[3]{}\Varid{flist}{}\<[10]%
+\>[10]{}\mathbin{::}[\mskip1.5mu \Conid{Bool}\mskip1.5mu]\to [\mskip1.5mu \Conid{BinOp}\mskip1.5mu]\to [\mskip1.5mu \Conid{BinOp}\mskip1.5mu]{}\<[E]%
 \\
-\>[3]{}\Varid{flist}\;[\mskip1.5mu \mskip1.5mu]\;{}\<[17]%
-\>[17]{}[\mskip1.5mu \mskip1.5mu]{}\<[25]%
-\>[25]{}\mathrel{=}{}\<[28]%
-\>[28]{}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
-\\
-\>[3]{}\Varid{flist}\;[\mskip1.5mu \mskip1.5mu]\;{}\<[17]%
-\>[17]{}\anonymous {}\<[25]%
-\>[25]{}\mathrel{=}{}\<[28]%
-\>[28]{}\Varid{error}\;\text{\tt \char34 Lists~must~be~of~the~same~length\char34}{}\<[E]%
-\\
-\>[3]{}\Varid{flist}\;\anonymous \;{}\<[17]%
-\>[17]{}[\mskip1.5mu \mskip1.5mu]{}\<[25]%
-\>[25]{}\mathrel{=}{}\<[28]%
-\>[28]{}\Varid{error}\;\text{\tt \char34 Lists~must~be~of~the~same~length\char34}{}\<[E]%
-\\
-\>[3]{}\Varid{flist}\;(\Varid{x}\mathbin{:}\Varid{xs})\;{}\<[17]%
-\>[17]{}(\Varid{y}\mathbin{:}\Varid{ys}){}\<[25]%
-\>[25]{}\mid {}\<[28]%
-\>[28]{}\Varid{x}{}\<[39]%
-\>[39]{}\mathrel{=}{}\<[39E]%
-\>[42]{}\Varid{y}\mathbin{:}\Varid{flist}\;\Varid{xs}\;\Varid{ys}{}\<[E]%
-\\
-\>[25]{}\mid {}\<[28]%
-\>[28]{}\Varid{otherwise}{}\<[39]%
-\>[39]{}\mathrel{=}{}\<[39E]%
-\>[42]{}\Varid{flist}\;\Varid{xs}\;\Varid{ys}{}\<[E]%
+\>[3]{}\Varid{flist}{}\<[10]%
+\>[10]{}\mathrel{=}(\Varid{map}\;\Varid{snd}\mathbin{\circ})\mathbin{\circ}(\Varid{filter}\;\Varid{fst}\mathbin{\circ})\mathbin{\circ}\Varid{zip}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 And so, the only operators that are of interest are:

@@ -96,7 +96,7 @@ The first element returned by |operators| is the binary operator {\sl constant t
 \indent\eval{head operators}
 \medskip
 
-\section{Unique Existencial Operator}
+\section{Unique Existential Operator}
 Now, recall that our goal is to check the value of the two following expressions, for all
 booleans $a$, $b$, and $c$, and for all boolean binary operators $\oplus$:
 
@@ -152,12 +152,8 @@ We then map |fthree| over |expl| and |expr|.
 Now, using the next function, |flist|, we can combine the lists of booleans constructed
 by |tmp1| and |tmp2| with the list |operators| to filter the operators we are interested in.
 
-> flist                 :: [Bool] -> [BinOp] -> [BinOp]
-> flist []      []      =  []
-> flist []      _       =  error "Lists must be of the same length"
-> flist _       []      =  error "Lists must be of the same length"
-> flist (x:xs)  (y:ys)  |  x          =  y: flist xs ys
->                       |  otherwise  =  flist xs ys
+> flist  :: [Bool] -> [BinOp] -> [BinOp]
+> flist  = (map snd .) . (filter fst .) . zip 
 
 And so, the only operators that are of interest are:
 
